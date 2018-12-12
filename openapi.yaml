@@ -1,0 +1,149 @@
+openapi: 3.0.1
+info:
+  title: defaultTitle
+  description: defaultDescription
+  version: "0.1"
+servers:
+- url: http://sc2-donation-dev.ci.olivetech.com
+security:
+- bearerAuth: []
+paths:
+  /api/campaign:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        200:
+          description: Auto generated using Swagger Inspector
+  /api/donations:
+    post:
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
+            examples:
+              0:
+                value: |
+                  {
+                    "currency": "USD",
+                    "domain": "sc",
+                    "donations": [
+                      {
+                        "amount": 1500,
+                        "recurring": false,
+                        "campaignId": "5c10dea4316f811ea0a53e6a"
+                      }
+                    ]
+                  }
+      responses:
+        200:
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /api/campaign/:
+    post:
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_1'
+            examples:
+              0:
+                value: |-
+                  {
+                    "campaignGoal":600,
+                    "gauId":"general",
+                    "campaignType":"general",
+                    "campaignTitle":"Dudziro sqa1",
+                    "campaignOverView":"Dudziro Emazwi Cluster from sqa1"
+                  }
+      responses:
+        200:
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /api/campaign/5c10de4c316f818382a53e69:
+    put:
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_2'
+            examples:
+              0:
+                value: "{\n\t\t\"campaignTitle\":\"Emazwi Cluster from sqa Athiya\"\
+                  \n}\n"
+      responses:
+        200:
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+components:
+  schemas:
+    body_1:
+      type: object
+      properties:
+        campaignGoal:
+          type: integer
+          format: int32
+          example: 6500
+        campaignType:
+          type: string
+          example: general
+        campaignTitle:
+          type: string
+          example: Dudziro
+        campaignOverView:
+          type: string
+          example: Dudziro overview
+        gauId:
+          type: string
+          example: general
+    body_2:
+      type: object
+      properties:
+        campaignTitle:
+          type: string
+          example: campaign updated title
+    apidonations_donations:
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int32
+          example: 3500
+        recurring:
+          type: boolean
+        campaignId:
+          type: string
+          example: 5c10dea4316f811ea0a53e6a
+    body:
+      type: object
+      properties:
+        donations:
+          type: array
+          items:
+            $ref: '#/components/schemas/apidonations_donations'
+        domain:
+          type: string
+          example: sc
+        currency:
+          type: string
+          example: USD
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
